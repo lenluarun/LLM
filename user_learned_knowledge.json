@@ -1,0 +1,289 @@
+{
+  "version": "1.0",
+  "created_at": "2026-04-11T19:33:48.701499",
+  "user_defined_topics": {
+    "general": {
+      "created": "2026-04-11T19:33:48.701499",
+      "q_and_a": [
+        {
+          "question": "What is a bloom filter?",
+          "answer": "A bloom filter is a probabilistic data structure for efficient membership testing.",
+          "is_verified": true
+        },
+        {
+          "question": "dsa",
+          "answer": "False",
+          "is_verified": true
+        },
+        {
+          "question": "dsa means",
+          "answer": "False",
+          "is_verified": true
+        },
+        {
+          "question": "What is binary search?",
+          "answer": "Memory leak: allocated memory not freed. Causes: unclosed resources, circular references, lost pointers. Detection: memory profilers, tools.",
+          "is_verified": true
+        },
+        {
+          "question": "What is binary search?",
+          "answer": "Memory leak: allocated memory not freed. Causes: unclosed resources, circular references, lost pointers. Detection: memory profilers, tools.",
+          "is_verified": true
+        },
+        {
+          "question": "What is binary search?",
+          "answer": "[DSA_FUNDAMENTALS] Linked lists use nodes with pointers. Insert/delete O(1) with pointer, access O(n). Use when frequent insertions at beginning.\n\n[DSA_FUNDAMENTALS] BST: left < node < right. Search/insert/delete O(log n) balanced. Unbalanced degrades to O(n).",
+          "is_verified": true
+        },
+        {
+          "question": "What is binary search?",
+          "answer": "Binary search has O(log n) time complexity. It requires a sorted array and uses a divide-and-conquer approach by repeatedly dividing the search interval in half.",
+          "is_verified": true
+        },
+        {
+          "question": "Explain OOP",
+          "answer": "[DSA_FUNDAMENTALS] Maintain window of elements. Substring matching, max subarray. Reduces nested loop to O(n).\n\n[WEB_DEVELOPMENT] Dynamic web language. Event handling, DOM manipulation, AJAX. Scoping, hoisting, event loop.",
+          "is_verified": true
+        },
+        {
+          "question": "What is binary search?",
+          "answer": "[DSA_FUNDAMENTALS] Linked lists use nodes with pointers. Insert/delete O(1) with pointer, access O(n). Use when frequent insertions at beginning.\n\n[DSA_FUNDAMENTALS] BST: left < node < right. Search/insert/delete O(log n) balanced. Unbalanced degrades to O(n).",
+          "is_verified": true
+        },
+        {
+          "question": "What is OOP?",
+          "answer": "Object-Oriented Programming: classes, objects, inheritance, polymorphism, encapsulation. Re-usable, modular. Concepts: attributes, methods, constructors, access specifiers.",
+          "is_verified": true
+        },
+        {
+          "question": "hi",
+          "answer": "[DSA_FUNDAMENTALS] Hash table distributes elements via hash function. O(1) average case. Handle collisions: chaining or open addressing.\n\n[DSA_FUNDAMENTALS] Linear search O(n), binary search O(log n) on sorted. Interpolation search O(log log n) on uniform.",
+          "is_verified": true
+        },
+        {
+          "question": "dsa",
+          "answer": "Question: dsa\n\nI have extensive knowledge about: DSA, Web Development, Databases, DevOps, Machine Learning, Cloud Platforms, Security, and System Design. Please refine your question or specify the topic!",
+          "is_verified": true
+        },
+        {
+          "question": "python?",
+          "answer": "Python: interpreted, high-level language. Uses: web (Django, Flask), data science (pandas, numpy), ML (TensorFlow, PyTorch), automation. Simple syntax, large ecosystem.",
+          "is_verified": true
+        },
+        {
+          "question": "python lenlu_ollama.py",
+          "answer": "[PROGRAMMING_PARADIGMS] Classes, objects, inheritance, polymorphism, encapsulation. Modularity, reusability. Languages: Java, C++, Python.\n\n[PROGRAMMING_PARADIGMS] Dependency declaration and resolution. Version constraints, transitive dependencies. npm (Node), pip (Python), Maven (Java).",
+          "is_verified": true
+        }
+      ],
+      "confidence": 1.0
+    },
+    "Bloom Filters": {
+      "created": "2026-04-11T19:33:48.703549",
+      "description": "Probabilistic data structures",
+      "content": "Bloom filters use multiple hash functions to check if element is in set...",
+      "q_and_a": [],
+      "confidence": 0.8
+    },
+    "web_development": {
+      "created": "2026-04-11T20:13:02.965137",
+      "q_and_a": [
+        {
+          "question": "Explain React hooks",
+          "answer": "Neural networks: layers of neurons with weights. Forward pass: compute output. Backpropagation: update weights. Deep learning uses many hidden layers.",
+          "is_verified": true
+        },
+        {
+          "question": "What are React hooks?",
+          "answer": "React Hooks are functions that let you use state and effects in functional components. Common hooks: useState, useEffect, useContext.",
+          "is_verified": true
+        },
+        {
+          "question": "Explain React hooks",
+          "answer": "[WEB_DEVELOPMENT] Facebook UI library using components. Hooks: useState, useEffect, useContext. Virtual DOM, reconciliation. JSX syntax.\n\n[WEB_DEVELOPMENT] Progressive framework. Reactive data binding, component-based. Directives: v-if, v-for, v-on. Simpler than React.",
+          "is_verified": true
+        },
+        {
+          "question": "Explain React hooks",
+          "answer": "[WEB_DEVELOPMENT] Facebook UI library using components. Hooks: useState, useEffect, useContext. Virtual DOM, reconciliation. JSX syntax.\n\n[WEB_DEVELOPMENT] Progressive framework. Reactive data binding, component-based. Directives: v-if, v-for, v-on. Simpler than React.",
+          "is_verified": true
+        },
+        {
+          "question": "Explain React hooks",
+          "answer": "React Hooks are functions that let you use state and effects in functional components. Common hooks: useState, useEffect, useContext.",
+          "is_verified": true
+        }
+      ],
+      "confidence": 0.9999999999999999
+    },
+    "system_design": {
+      "created": "2026-04-11T20:13:59.433523",
+      "q_and_a": [
+        {
+          "question": "Explain database normalization",
+          "answer": "Replication: synchronizes data across servers. Master-slave, multi-master patterns. Improves availability, read performance. Trade-off: consistency, bandwidth.",
+          "is_verified": true
+        },
+        {
+          "question": "What is database normalization?",
+          "answer": "Normalization removes redundancy through 1NF, 2NF, 3NF, BCNF stages. Each stage eliminates different types of dependencies.",
+          "is_verified": true
+        },
+        {
+          "question": "What is database normalization?",
+          "answer": "Normalization removes redundancy through 1NF, 2NF, 3NF, BCNF stages. Each stage eliminates different types of dependencies.",
+          "is_verified": true
+        },
+        {
+          "question": "Database normalization",
+          "answer": "Normalization removes redundancy through 1NF, 2NF, 3NF, BCNF stages. Each stage eliminates different types of dependencies.",
+          "is_verified": true
+        }
+      ],
+      "confidence": 0.8999999999999999
+    },
+    "devops": {
+      "created": "2026-04-11T20:17:20.764240",
+      "q_and_a": [
+        {
+          "question": "Explain Docker",
+          "answer": "[DATABASE_SYSTEMS] EXPLAIN PLAN analyzes queries. Use indexes, avoid full table scans. Query rewriting, statistics.\n\n[CLOUD_PLATFORMS] EC2 Container Service manages Docker containers. Easier than Kubernetes. Integrate with load balancer.",
+          "is_verified": true
+        }
+      ],
+      "confidence": 0.6
+    },
+    "machine learning": {
+      "created": "2026-04-11T20:17:20.780258",
+      "q_and_a": [
+        {
+          "question": "What is machine learning?",
+          "answer": "ML: algorithms learn patterns from data. Supervised (labeled), unsupervised (unlabeled), reinforcement learning. Applications: classification, regression, clustering.",
+          "is_verified": true
+        },
+        {
+          "question": "AIML",
+          "answer": "Q: AIML Context: [LEARNED] ML: algorithms learn patterns from data.",
+          "is_verified": true
+        },
+        {
+          "question": "models",
+          "answer": "[MACHINE_LEARNING] Use pre-trained model, fine-tune on new task. Faster training, better performance. ImageNet models for vision.",
+          "is_verified": true
+        }
+      ],
+      "confidence": 0.7999999999999999
+    }
+  },
+  "improved_answers": {},
+  "common_questions": {
+    "bloom_filter?_what": {
+      "question": "What is a bloom filter?",
+      "count": 1,
+      "best_answer": "A bloom filter is a probabilistic data structure for efficient membership testing.",
+      "variations": []
+    },
+    "": {
+      "question": "dsa",
+      "count": 3,
+      "best_answer": "False",
+      "variations": []
+    },
+    "means": {
+      "question": "dsa means",
+      "count": 1,
+      "best_answer": "False",
+      "variations": []
+    },
+    "binary_search?_what": {
+      "question": "What is binary search?",
+      "count": 5,
+      "best_answer": "Memory leak: allocated memory not freed. Causes: unclosed resources, circular references, lost pointers. Detection: memory profilers, tools.",
+      "variations": []
+    },
+    "explain_hooks_react": {
+      "question": "Explain React hooks",
+      "count": 4,
+      "best_answer": "Neural networks: layers of neurons with weights. Forward pass: compute output. Backpropagation: update weights. Deep learning uses many hidden layers.",
+      "variations": []
+    },
+    "hooks?_react_what": {
+      "question": "What are React hooks?",
+      "count": 1,
+      "best_answer": "React Hooks are functions that let you use state and effects in functional components. Common hooks: useState, useEffect, useContext.",
+      "variations": []
+    },
+    "database_explain_normalization": {
+      "question": "Explain database normalization",
+      "count": 1,
+      "best_answer": "Replication: synchronizes data across servers. Master-slave, multi-master patterns. Improves availability, read performance. Trade-off: consistency, bandwidth.",
+      "variations": []
+    },
+    "database_normalization?_what": {
+      "question": "What is database normalization?",
+      "count": 2,
+      "best_answer": "Normalization removes redundancy through 1NF, 2NF, 3NF, BCNF stages. Each stage eliminates different types of dependencies.",
+      "variations": []
+    },
+    "explain": {
+      "question": "Explain OOP",
+      "count": 1,
+      "best_answer": "[DSA_FUNDAMENTALS] Maintain window of elements. Substring matching, max subarray. Reduces nested loop to O(n).\n\n[WEB_DEVELOPMENT] Dynamic web language. Event handling, DOM manipulation, AJAX. Scoping, hoisting, event loop.",
+      "variations": []
+    },
+    "database_normalization": {
+      "question": "Database normalization",
+      "count": 1,
+      "best_answer": "Normalization removes redundancy through 1NF, 2NF, 3NF, BCNF stages. Each stage eliminates different types of dependencies.",
+      "variations": []
+    },
+    "oop?_what": {
+      "question": "What is OOP?",
+      "count": 1,
+      "best_answer": "Object-Oriented Programming: classes, objects, inheritance, polymorphism, encapsulation. Re-usable, modular. Concepts: attributes, methods, constructors, access specifiers.",
+      "variations": []
+    },
+    "docker_explain": {
+      "question": "Explain Docker",
+      "count": 1,
+      "best_answer": "[DATABASE_SYSTEMS] EXPLAIN PLAN analyzes queries. Use indexes, avoid full table scans. Query rewriting, statistics.\n\n[CLOUD_PLATFORMS] EC2 Container Service manages Docker containers. Easier than Kubernetes. Integrate with load balancer.",
+      "variations": []
+    },
+    "learning?_machine_what": {
+      "question": "What is machine learning?",
+      "count": 1,
+      "best_answer": "ML: algorithms learn patterns from data. Supervised (labeled), unsupervised (unlabeled), reinforcement learning. Applications: classification, regression, clustering.",
+      "variations": []
+    },
+    "python?": {
+      "question": "python?",
+      "count": 1,
+      "best_answer": "Python: interpreted, high-level language. Uses: web (Django, Flask), data science (pandas, numpy), ML (TensorFlow, PyTorch), automation. Simple syntax, large ecosystem.",
+      "variations": []
+    },
+    "aiml": {
+      "question": "AIML",
+      "count": 1,
+      "best_answer": "Q: AIML Context: [LEARNED] ML: algorithms learn patterns from data.",
+      "variations": []
+    },
+    "lenlu_ollama.py_python": {
+      "question": "python lenlu_ollama.py",
+      "count": 1,
+      "best_answer": "[PROGRAMMING_PARADIGMS] Classes, objects, inheritance, polymorphism, encapsulation. Modularity, reusability. Languages: Java, C++, Python.\n\n[PROGRAMMING_PARADIGMS] Dependency declaration and resolution. Version constraints, transitive dependencies. npm (Node), pip (Python), Maven (Java).",
+      "variations": []
+    },
+    "models": {
+      "question": "models",
+      "count": 1,
+      "best_answer": "[MACHINE_LEARNING] Use pre-trained model, fine-tune on new task. Faster training, better performance. ImageNet models for vision.",
+      "variations": []
+    }
+  },
+  "user_corrections": {},
+  "learning_stats": {
+    "total_interactions": 27,
+    "topics_learned": 6,
+    "corrections_applied": 0
+  }
+}

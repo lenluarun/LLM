@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+  "config": {
+    "mediaType": "application/vnd.docker.container.image.v1+json",
+    "digest": "sha256:lenlu_ai_plus_config_hash",
+    "size": 512
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.ollama.image.model",
+      "digest": "sha256:lenlu_model_weights_hash",
+      "size": 6594462816,
+      "annotations": {
+        "description": "LENLU AI+ - Advanced Coding Assistant LLM"
+      }
+    },
+    {
+      "mediaType": "application/vnd.ollama.image.license",
+      "digest": "sha256:lenlu_license_hash",
+      "size": 11355
+    },
+    {
+      "mediaType": "application/vnd.ollama.image.params",
+      "digest": "sha256:lenlu_params_hash",
+      "size": 65
+    }
+  ],
+  "annotations": {
+    "org.opencontainers.image.title": "LENLU AI+",
+    "org.opencontainers.image.description": "Advanced LLM with User Training & 4GB+ Knowledge Base",
+    "org.opencontainers.image.version": "1.0.0",
+    "org.opencontainers.image.authors": "lenlu_arun",
+    "org.opencontainers.image.source": "local",
+    "org.opencontainers.image.base.name": "t5-base",
+    "org.opencontainers.image.licenses": "MIT"
+  }
+}

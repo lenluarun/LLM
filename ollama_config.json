@@ -1,0 +1,45 @@
+{
+  "ollama": {
+    "enabled": false,
+    "server_url": "http://localhost:11434",
+    "auto_start": true,
+    "default_model": "llama3.1",
+    "fallback_model": "mistral",
+    "timeout": 30,
+    "retry_attempts": 3
+  },
+  "models": {
+    "preferred_order": [
+      "llama3.1",
+      "mistral",
+      "neural-chat",
+      "orca-mini"
+    ],
+    "auto_pull": true,
+    "cache_embeddings": true
+  },
+  "generation": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 40,
+    "num_predict": 256,
+    "repeat_penalty": 1.1,
+    "stop_sequences": [
+      "[INST]",
+      "</s>",
+      "\n\n"
+    ]
+  },
+  "local_storage": {
+    "models_directory": "./models/ollama_models",
+    "cache_directory": "./models/cache",
+    "enable_local_caching": true
+  },
+  "lenlu_specific": {
+    "max_context_length": 2048,
+    "knowledge_base_path": "./knowledge_base_comprehensive.json",
+    "training_data_path": "./training_data_expanded.json",
+    "enable_hybrid_mode": true,
+    "prioritize_training_data": true
+  }
+}

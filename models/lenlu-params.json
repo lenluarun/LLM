@@ -1,0 +1,13 @@
+{
+  "general": {
+    "default_num_ctx": 2048,
+    "num_gqa": 8,
+    "rms_norm_eps": 1e-5,
+    "num_head": 32,
+    "head_dim": 128
+  },
+  "context_length": 2048,
+  "embedding_length": 4096,
+  "stop": ["<|start_header_id|>", "<|end_header_id|>", "<|eot_id|>"],
+  "use_attention_linear": true
+}
