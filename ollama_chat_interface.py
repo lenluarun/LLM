@@ -191,7 +191,7 @@ class OllamaChatInterface:
             model = entry.get("model", "unknown")
             user_msg = entry.get("user", "")[:50] + "..." if len(entry.get("user", "")) > 50 else entry.get("user", "")
             
-            self.console.print(f"  [{bold cyan}{idx}[/]] [{model}] {timestamp}")
+            self.console.print(f"  [bold cyan][{idx}[/]] [{model}] {timestamp}")
             self.console.print(f"      Q: {user_msg}")
         
         input("[bold yellow]Press Enter to continue...[/]")

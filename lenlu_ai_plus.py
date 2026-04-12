@@ -424,8 +424,7 @@ def main():
         if HAS_RICH:
             console.print(f"[bold red]❌ Error: {str(e)}[/bold red]")
         else:
-            print(f"Error: {str(e)}")            ssh-keygen -t ed25519 -C "your_email@example.com"
-            # Add the public key to GitHub settings (Settings > SSH and GPG keys)
+            print(f"Error: {str(e)}")
     
     finally:
         if HAS_RICH:
