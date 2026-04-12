@@ -74,7 +74,7 @@ LENLU LLM (emu)/
 - **[8]** 📊 System Information & diagnostics
 
 ### **Advanced**
-- **[9]** 🔧 Advanced Options (history, models, git status, setup dependencies)
+- **[9]** 🔧 Advanced Options (history, models, update from GitHub, setup dependencies)
 - **[0]** ❌ Exit
 
 ---

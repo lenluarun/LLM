@@ -1,0 +1,20 @@
+{
+  "conversations": [
+    {
+      "timestamp": "2026-04-12T11:17:25.959059",
+      "question": "hi",
+      "answer": "Question: hi\n\nI have extensive knowledge about: DSA, Web Development, Databases, DevOps, Machine Learning, Cloud Platforms, Security, and System Design. Please refine your question or specify the topic!",
+      "feedback": null,
+      "marked_correct": true
+    },
+    {
+      "timestamp": "2026-04-12T11:18:00.038807",
+      "question": "python code to add two numbers",
+      "answer": "For programming question 'python code to add two numbers': Language-specific details needed. General concepts: OOP, functional programming, design patterns, testing, performance.",
+      "feedback": null,
+      "marked_correct": true
+    }
+  ],
+  "session_count": 0,
+  "total_messages": 2
+}

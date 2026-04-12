@@ -98,7 +98,7 @@ function Show-Commands {
         @{Cmd="python verify_ollama_setup.py"; Desc="Verify Ollama setup"},
         @{Cmd="python setup_ollama.py"; Desc="Setup Ollama automatically"},
         @{Cmd="python terminal_interface.py"; Desc="Launch styled terminal interface"},
-        @{Cmd="git status"; Desc="Check git status"},
+        @{Cmd="git pull origin main"; Desc="Update from GitHub"},
         @{Cmd="git push origin main"; Desc="Push changes to GitHub"}
     )
     
@@ -159,7 +159,7 @@ function Show-QuickActions {
         "4. Show File Structure",
         "5. Install Requirements",
         "6. Run Terminal Interface",
-        "7. Git Status Check",
+        "7. Update from GitHub",
         "8. Exit"
     )
     
@@ -185,12 +185,14 @@ function Install-Requirements {
     }
 }
 
-# Check git status
-function Check-GitStatus {
-    Write-Section "Git Status"
+# Update from GitHub
+function Update-FromGitHub {
+    Write-Section "Update from GitHub"
     
     if (Test-Path ".git") {
-        & git status
+        Write-Info "Pulling latest changes from origin..."
+        & git pull origin main
+        Write-Success "Update completed successfully!"
     } else {
         Write-Error-Custom "Git repository not initialized!"
     }
@@ -202,7 +204,7 @@ function Show-MainMenu {
         Clear-Host
         Show-Banner
         
-        Write-Host "Welcome to LENLU AI+ - PowerShell Interface" -ForegroundColor Cyan
+        Write-Host "Welcome to LENLU LLM (emu) - PowerShell Interface" -ForegroundColor Cyan
         Write-Host "==========================================" -ForegroundColor Cyan
         
         Show-SystemStatus
@@ -248,7 +250,7 @@ function Show-MainMenu {
             "7" { 
                 Clear-Host
                 Show-Banner
-                Check-GitStatus
+                Update-FromGitHub
                 Read-Host "Press Enter to continue"
             }
             "8" { 
