@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LENLU AI+ Ollama Chat</title>
+    <title>LENLU LLM (emu) Ollama Chat</title>
     <style>
         * {
             margin: 0;
@@ -46,6 +46,7 @@
             font-weight: bold;
             margin-bottom: 30px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -216,6 +217,41 @@
             border: 1px solid #e0e0e0;
         }
 
+        .code-block {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            position: relative;
+            margin: 8px 0;
+        }
+
+        .code-copy-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 4px 8px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .code-block:hover .code-copy-btn {
+            opacity: 1;
+        }
+
+        .code-copy-btn:hover {
+            background: #764ba2;
+        }
+
         .loading {
             display: flex;
             align-items: center;
@@ -360,6 +396,40 @@
             border-left: 4px solid #e74c3c;
         }
 
+        .terminal-output {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 8px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+            border: 1px solid #333;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .terminal-tab {
+            padding: 10px 15px;
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .terminal-tab.active {
+            border-bottom-color: #667eea;
+            background: white;
+        }
+
+        .terminal-tab:hover {
+            background: #e8e8e8;
+        }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -369,23 +439,19 @@
 
             .sidebar {
                 width: 100%;
-                display: none;
-            }
-
-            .sidebar.active {
-                display: block;
             }
 
             .message-content {
                 max-width: 90%;
             }
         }
+
     </style>
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
-            <div class="logo">📱 LENLU AI+</div>
+            <div class="logo">📱 LENLU LLM (emu)</div>
             
             <div class="section">
                 <div class="section-title">Model Selection</div>
@@ -402,7 +468,8 @@
                 <div class="button-group">
                     <button class="btn btn-primary" onclick="newSession()">New Session</button>
                     <button class="btn btn-secondary" onclick="loadHistory()">View History</button>
-                    <button class="btn btn-secondary" onclick="exportChat()">Export Chat</button>
+                    <button class="btn btn-secondary" onclick="exportChat()">Export Chat JSON</button>
+                    <button class="btn btn-secondary" onclick="exportPDF()">📄 Export PDF</button>
                 </div>
             </div>
 
@@ -421,27 +488,29 @@
             <div class="section">
                 <div class="section-title">Danger Zone</div>
                 <div class="button-group">
-                    <button class="btn btn-danger" onclick="clearHistory()">Clear All History</button>
+                    <button class="btn btn-danger" onclick="clearHistory()">Clear History</button>
                 </div>
             </div>
         </div>
 
         <div class="main-content">
             <div class="header">
-                <div class="header-title">LENLU AI+ Ollama Chat</div>
-                <button class="btn btn-secondary" onclick="refreshStatus()" style="font-size: 12px;">Refresh</button>
+                <div class="header-title">LENLU LLM (emu) Chat</div>
+                <button class="btn btn-secondary" onclick="refreshStatus()" style="font-size: 12px;">🔄 Refresh Status</button>
             </div>
 
             <div class="chat-area" id="chatArea">
                 <div style="text-align: center; color: #95a5a6; padding: 40px;">
                     <div style="font-size: 48px; margin-bottom: 20px;">💬</div>
-                    <div style="font-size: 18px;">Welcome to LENLU AI+</div>
-                    <div style="font-size: 14px; margin-top: 10px;">Start a conversation by typing your message below</div>
+                    <div style="font-size: 18px;">Welcome to LENLU LLM (emu)</div>
+                    <div style="font-size: 14px; margin-top: 10px;">Start typing to chat with Ollama</div>
                 </div>
             </div>
 
-            <div class="input-area">
+            <div class="input-area" id="inputArea">
                 <div class="input-wrapper">
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                    <button class="send-btn" onclick="document.getElementById('imageInput').click()" title="Upload image" style="padding: 12px 12px; width: auto;">📷</button>
                     <textarea class="chat-input" id="messageInput" placeholder="Type your message..." rows="1"></textarea>
                     <button class="send-btn" onclick="sendMessage()">Send</button>
                 </div>
@@ -449,7 +518,7 @@
         </div>
     </div>
 
-    <!-- Modals -->
+    <!-- History Modal -->
     <div class="modal" id="historyModal">
         <div class="modal-content">
             <div class="modal-title">Conversation History</div>
@@ -475,14 +544,13 @@
                 
                 const statusBadge = document.getElementById('status');
                 if (data.ollama_running) {
-                    statusBadge.textContent = 'Online';
+                    statusBadge.textContent = '🟢 Online';
                     statusBadge.className = 'status-badge status-online';
                 } else {
-                    statusBadge.textContent = 'Offline';
+                    statusBadge.textContent = '🔴 Offline';
                     statusBadge.className = 'status-badge status-offline';
                 }
 
-                // Populate model selector
                 const modelSelect = document.getElementById('modelSelect');
                 if (data.models.length > 0) {
                     modelSelect.innerHTML = '';
@@ -490,7 +558,6 @@
                         const option = document.createElement('option');
                         option.value = model;
                         option.textContent = model;
-                        if (model === 'lenlu') option.selected = true;
                         modelSelect.appendChild(option);
                     });
                     currentModel = data.models[0];
@@ -508,14 +575,12 @@
 
             if (!message) return;
 
-            // Add user message to chat
             addMessage(message, 'user');
             input.value = '';
             input.style.height = 'auto';
 
-            // Show loading
             const loadingId = 'loading_' + Date.now();
-            addMessage('<div class="spinner"></div><div class="spinner"></div><div class="spinner"></div> Thinking...', 'assistant', loadingId);
+            addMessage('⏳ Thinking...', 'assistant', loadingId);
 
             try {
                 currentModel = document.getElementById('modelSelect').value;
@@ -536,11 +601,11 @@
                     addMessage(data.response, 'assistant');
                     updateStats();
                 } else {
-                    addMessage(data.error || 'Error: No response', 'assistant');
+                    addMessage('❌ Error: ' + (data.error || 'No response'), 'assistant');
                 }
             } catch (error) {
                 removeMessage(loadingId);
-                addMessage('Error: ' + error.message, 'assistant');
+                addMessage('❌ Error: ' + error.message, 'assistant');
             }
         }
 
@@ -552,7 +617,7 @@
 
             const contentDiv = document.createElement('div');
             contentDiv.className = 'message-content';
-            contentDiv.innerHTML = content;
+            contentDiv.innerHTML = escapeHtml(content);
 
             messageDiv.appendChild(contentDiv);
 
@@ -567,6 +632,17 @@
         function removeMessage(id) {
             const msg = document.getElementById(id);
             if (msg) msg.remove();
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
         }
 
         async function updateStats() {
@@ -589,23 +665,21 @@
                 if (history.length === 0) {
                     content = '<p style="color: #95a5a6;">No conversations yet</p>';
                 } else {
-                    content = '<div style="max-height: 400px; overflow-y: auto;">';
                     history.forEach((chat, index) => {
                         content += `
                             <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e0e0e0;">
-                                <strong>[${chat.model}] ${chat.timestamp}</strong><br>
-                                <span style="color: #667eea;">Q:</span> ${chat.user.substring(0, 60)}...<br>
-                                <span style="color: #764ba2;">A:</span> ${chat.assistant.substring(0, 60)}...
+                                <strong>[${chat.model}]</strong> ${new Date(chat.timestamp).toLocaleString()}<br>
+                                <span style="color: #667eea;">Q:</span> ${escapeHtml(chat.user.substring(0, 80))}<br>
+                                <span style="color: #764ba2;">A:</span> ${escapeHtml(chat.assistant.substring(0, 80))}...
                             </div>
                         `;
                     });
-                    content += '</div>';
                 }
 
                 document.getElementById('historyContent').innerHTML = content;
                 document.getElementById('historyModal').classList.add('active');
             } catch (error) {
-                alert('Error loading history: ' + error);
+                alert('❌ Error loading history');
             }
         }
 
@@ -613,22 +687,37 @@
             try {
                 const response = await fetch('/api/export');
                 const data = await response.json();
-                alert('Chat exported to: ' + data.path);
+                alert('✅ Chat exported! File: ' + data.filename);
             } catch (error) {
-                alert('Error exporting: ' + error);
+                alert('❌ Error exporting chat');
+            }
+        }
+
+        async function exportPDF() {
+            try {
+                const response = await fetch('/api/export-pdf');
+                const data = await response.json();
+                if (response.ok) {
+                    alert('✅ PDF exported!');
+                    window.open(data.path, '_blank');
+                } else {
+                    alert('❌ Error: ' + data.error);
+                }
+            } catch (error) {
+                alert('❌ Error exporting PDF');
             }
         }
 
         function clearHistory() {
-            if (confirm('Are you sure you want to clear all chat history? This cannot be undone.')) {
+            if (confirm('Are you sure? This cannot be undone.')) {
                 fetch('/api/clear-history', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ confirm: true })
                 }).then(() => {
-                    alert('History cleared!');
+                    alert('✅ History cleared!');
                     location.reload();
-                });
+                }).catch(() => alert('❌ Error clearing history'));
             }
         }
 
@@ -640,7 +729,6 @@
                     <div style="font-size: 18px;">New Session Started</div>
                 </div>
             `;
-            alert('New session created!');
         }
 
         function refreshStatus() {
@@ -651,13 +739,11 @@
             document.getElementById(modalId).classList.remove('active');
         }
 
-        // Auto-resize textarea
         document.getElementById('messageInput')?.addEventListener('input', function() {
             this.style.height = 'auto';
             this.style.height = Math.min(this.scrollHeight, 120) + 'px';
         });
 
-        // Send on Enter
         document.getElementById('messageInput')?.addEventListener('keypress', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
@@ -665,9 +751,21 @@
             }
         });
 
-        // Initialize
         checkStatus();
         setInterval(checkStatus, 30000);
+
+        document.getElementById('imageInput')?.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    addMessage('📸 Image uploaded', 'user');
+                    addMessage('📸 Image received', 'assistant');
+                };
+                reader.readAsDataURL(file);
+                e.target.value = '';
+            }
+        });
     </script>
 </body>
 </html>

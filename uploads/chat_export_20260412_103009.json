@@ -1,0 +1,16 @@
+[
+  {
+    "timestamp": "2026-04-11T20:44:27.279278",
+    "question": "models",
+    "answer": "[MACHINE_LEARNING] Use pre-trained model, fine-tune on new task. Faster training, better performance. ImageNet models for vision.",
+    "feedback": null,
+    "marked_correct": true
+  },
+  {
+    "timestamp": "2026-04-12T10:29:31.544556",
+    "model": "llama3.1:latest",
+    "session_id": "session_1775969950159_qjym23tne",
+    "user": "what is an array?",
+    "assistant": "**What is an Array?**\n=======================\n\nAn array is a fundamental data structure in programming that stores multiple values of the same data type in a single variable. It's essentially a collection of elements that can be accessed using an index or key.\n\n**Key Characteristics:**\n\n1. **Homogeneous**: An array stores elements of the same data type.\n2. **Ordered**: Elements in an array have a specific order, with each element assigned a unique index.\n3. **Indexable**: Each element in an array is identified by its index, allowing for direct access and modification.\n\n**Example:**\n```python\nfruits = ['apple', 'banana', 'cherry']\n```\nIn this example:\n\n* `fruits` is the name of the array variable.\n* The array contains three elements: `'apple'`, `'banana'`, and `'cherry'`.\n* Each element has a unique index:\n\t+ `fruits[0]`: `'apple'`\n\t+ `fruits[1]`: `'banana'`\n\t+ `fruits[2]`: `'cherry'`\n\n**Why Use Arrays?**\n\nArrays are useful for storing and manipulating collections of data, such as:\n\n* Lists of items\n* Sets of values\n* Tables or datasets\n\nThey provide efficient access and modification capabilities, making them a fundamental component of many programming languages.\n\n**Common Array Operations:**\n\n1. **Accessing elements**: `array[index]`\n2. **Modifying elements**: `array[index] = newValue`\n3. **Adding new elements**: `array.append(newElement)`\n4. **Removing elements**: `del array[index]` or `array.remove(element)`\n\nI hope this helps you understand what an array is and how it's used in programming!"
+  }
+]

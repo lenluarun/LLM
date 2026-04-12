@@ -1,5 +1,5 @@
 """
-LENLU AI+ - Advanced LLM with User Training & Extended 4GB Knowledge
+LENLU LLM (emu) - Advanced LLM with User Training & Extended 4GB Knowledge
 Integrates learning system with massive knowledge base
 """
 
@@ -298,9 +298,9 @@ class AIEnhancedLENLU:
         """Show welcome with learning stats"""
         if HAS_RICH:
             import rich.box as box
-            welcome_text = Text("Welcome to LENLU AI+\n", style="bold magenta")
+            welcome_text = Text("Welcome to LENLU LLM (emu)\n", style="bold magenta")
             welcome_text.append("4GB+ Knowledge Base • AI Learning\n\n", style="dim magenta")
-            welcome_text.append("@lenlu_arun & @lenluarun", style="bold cyan")
+            welcome_text.append("Advanced LLM Edition", style="dim cyan")
             
             panel = Panel(welcome_text, border_style="magenta", box=box.ROUNDED, padding=(1, 2))
             console.print(panel)
@@ -320,10 +320,10 @@ class AIEnhancedLENLU:
             console.print(commands)
         else:
             print("="*50)
-            print("LENLU AI+ - Advanced Coding Assistant")
+            print("LENLU LLM (emu) - Advanced Coding Assistant")
             print("4GB+ Knowledge Base • AI Learning System")
             print("="*50)
-            print("\nPowered by @lenlu_arun & @lenluarun\n")
+            print("\n")
     
     def display_response(self, response):
         """Display formatted response"""
@@ -348,7 +348,7 @@ class AIEnhancedLENLU:
         stats = self.learner.get_learning_stats()
         
         if HAS_RICH:
-            console.print("\n[bold magenta]📊 LENLU AI+ Learning Statistics:[/bold magenta]")
+            console.print("\n[bold magenta]📊 LENLU LLM (emu) Learning Statistics:[/bold magenta]")
             console.print("━" * 60)
             console.print(f"  [cyan]Total Interactions:[/cyan] {stats['total_interactions']}")
             console.print(f"  [cyan]Topics Learned:[/cyan] {stats['topics_learned']}")
@@ -428,10 +428,10 @@ def main():
     
     finally:
         if HAS_RICH:
-            closing = Text("\n✨ LENLU LLM - Powered by @lenlu_arun & @lenluarun ✨\n", style="bold magenta")
+            closing = Text("\n✨ LENLU LLM (emu) - Your Advanced AI Assistant ✨\n", style="bold magenta")
             console.print(Align.center(closing))
         else:
-            print("\n✨ LENLU LLM - Powered by @lenlu_arun & @lenluarun ✨\n")
+            print("\n✨ LENLU LLM (emu) - Your Advanced AI Assistant ✨\n")
 
 
 if __name__ == "__main__":

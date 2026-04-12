@@ -1,5 +1,5 @@
 """
-LENLU AI+ Ollama Chat Interface
+LENLU LLM (emu) Ollama Chat Interface
 Styled chat interface with terminal clearing and persistent conversation logging
 """
 
@@ -34,7 +34,7 @@ class OllamaChatInterface:
         else:
             os.system("clear")
     
-    def print_header(self, title: str = "LENLU AI+ Ollama Chat"):
+    def print_header(self, title: str = "LENLU LLM (emu) Ollama Chat"):
         """Print styled header"""
         header = Text(title, style="bold cyan", justify="center")
         panel = Panel(

@@ -1,5 +1,5 @@
 """
-Stylized Terminal Interface for LENLU AI+ Project
+Stylized Terminal Interface for LENLU LLM (emu) Project
 Enhanced CLI with Rich library for better UX
 """
 
@@ -28,7 +28,7 @@ class StyledTerminal:
         header_text = Text(title, style="bold cyan", justify="center")
         panel = Panel(
             header_text,
-            title="[bold magenta]LENLU AI+[/]",
+            title="[bold magenta]LENLU LLM (emu)[/]",
             subtitle=f"[yellow]{subtitle}[/]" if subtitle else None,
             border_style="bright_blue",
             expand=False,
