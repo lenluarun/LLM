@@ -14,6 +14,18 @@ Choose from **9 interactive menu options** to access web GUI, terminal UI, chat 
 
 ---
 
+## 🎨 Visual Overview
+
+### Unified AI Ecosystem
+![LENLU LLM Ecosystem](IMGS/lenlu_ecosystem.png)
+*A unified interface ecosystem connecting web dashboard, chat interface, terminal access, and local Ollama inference*
+
+### Multi-Interface Architecture
+![LENLU LLM Interfaces](IMGS/lenlu_interfaces.png)
+*The LENLU LLM core with integrated AI Studio, Chat Interface, and Terminal Access powered by Ollama*
+
+---
+
 ## 📁 Project Structure
 
 ```
